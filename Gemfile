@@ -1,3 +1,4 @@
+gem 'dotenv-rails', groups: [:development, :test]
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -18,7 +19,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -29,6 +32,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+
+gem 'friendly_id', '~> 5.4.0'
 
 gem 'htmlbeautifier'
 
@@ -59,3 +64,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'stimulus_reflex', '~> 3.4'
+
+gem "optimism", "~> 0.4.2"

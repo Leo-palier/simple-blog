@@ -1,8 +1,8 @@
 module Authors
   class PostsController < AuthorsController
-    before_action :set_post, only: %i[edit update destroy]
+    before_action :set_post, only: [:edit, :update, :destroy]
 
-    # GET /posts or /posts.json
+    # GET /posts
     def index
       @posts = current_author.posts
     end
@@ -17,39 +17,39 @@ module Authors
       @element = @post.elements.build
     end
 
-    # POST /posts or /posts.json
+    # POST /posts
     def create
       @post = current_author.posts.build(post_params)
+
       if @post.save
         redirect_to edit_post_path(@post)
       else
-        render :new
+        broadcast_errors @post, post_params
       end
     end
 
-    # PATCH/PUT /posts/1 or /posts/1.json
+    # PATCH/PUT /posts/1
     def update
       if @post.update(post_params)
         redirect_to edit_post_path(@post)
       else
-        render :edit
+        broadcast_errors @post, post_params
       end
     end
 
-    # DELETE /posts/1 or /posts/1.json
+    # DELETE /posts/1
     def destroy
       @post.destroy
       redirect_to posts_url, notice: 'Post was successfully destroyed.'
     end
 
     private
-
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = current_author.posts.find(params[:id])
+      @post = current_author.posts.friendly.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Only allow a trusted parameter "white list" through.
     def post_params
       params.require(:post).permit(:title, :description, :header_image)
     end
