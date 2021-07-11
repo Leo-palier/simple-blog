@@ -97,6 +97,8 @@ GEM
     htmlbeautifier (1.3.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    impressionist (2.0.0)
+      nokogiri (~> 1)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
     listen (3.5.1)
@@ -256,6 +258,7 @@ DEPENDENCIES
   dotenv-rails
   friendly_id (~> 5.4.0)
   htmlbeautifier
+  impressionist
   jbuilder (~> 2.7)
   listen (~> 3.2)
   optimism (~> 0.4.2)

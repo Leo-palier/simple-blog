@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history, :finders]
 
+  is_impressionable
+
   belongs_to :author
   has_many :elements
 
@@ -13,6 +15,7 @@ class Post < ApplicationRecord
   scope :published, -> do
     where(published: true)
   end
+
 
   scope :most_recently_published, -> do
     order(published_at: :desc)
