@@ -24,3 +24,25 @@
     }
   }
 }
+
+.btn-read {
+  background-color: #4ad1db;
+  color: white;
+  letter-spacing: 1px;
+}
+.btn-read:hover {
+  background-color: #66e1ea;
+  text-decoration: none;
+  color: white;
+}
+
+.delete-button {
+  width: 80px;
+  margin-left: 1.25rem;
+}
+
+.card-body h1,
+h5 {
+  color: #afa59d;
+  font-weight: 600;
+}
